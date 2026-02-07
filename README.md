@@ -104,18 +104,7 @@ Benefits:
 
 ### Fact Table
 
-### `fact_shipments`
-
-| Column | Description |
-|--------|-------------|
-| shipment_id | Primary Key |
-| shipment_date | Shipment date |
-| customer_id | Customer reference |
-| product_id | Product reference |
-| carrier_id | Carrier reference |
-| shipment_mode | Air / Road / Sea |
-| shipment_status | Delivered / Delayed |
-| freight_cost_usd | Revenue |
+- fact_shipments
 
 ---
 
