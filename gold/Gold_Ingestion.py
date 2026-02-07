@@ -34,23 +34,17 @@ from pyspark.sql.functions import col, coalesce, lit, trim
 
 base_df  = (
     fact_df.alias("f")
-    # Join customer table
     .join(customer_df.alias("c"), "customer_id", "left")
-    # Join product table
     .join(product_df.alias("p"), "product_id", "left")
-    # Join carrier table
     .join(carrier_df.alias("r"), "carrier_id", "left")
     .select(
         col("f.*"),
-        # Customer columns
         coalesce(trim(col("c.customer_name")), lit("Unknown")).alias("customer_name"),
         coalesce(col("c.customer_country"), lit("Unknown")).alias("customer_country"),
         coalesce(trim(col("c.city")), lit("Unknown")).alias("city"),
-        # Product columns
         coalesce(trim(col("p.product_name")), lit("Unknown")).alias("product_name"),
         coalesce(trim(col("p.category")), lit("Unknown")).alias("category"),
         col("p.weight_kg").cast("double").alias("weight_kg"),
-        # Carrier columns
         coalesce(trim(col("r.carrier_name")), lit("Unknown")).alias("carrier_name"),
         coalesce(trim(col("r.carrier_type")), lit("Unknown")).alias("carrier_type"),
         coalesce(trim(col("r.carrier_country")), lit("Unknown")).alias("carrier_country")
