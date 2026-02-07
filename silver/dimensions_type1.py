@@ -39,7 +39,7 @@ def type1_merge(src_df, target_table, key_col):
         )
 
 
-# 1️⃣ CUSTOMER TABLE
+# CUSTOMER TABLE
 
 
 def load_customer():
