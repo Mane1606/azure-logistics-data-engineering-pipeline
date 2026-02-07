@@ -83,7 +83,7 @@ clean_df = (
 
 
 
-# 3. Detect duplicates
+# Detect duplicates
 
 
 window_spec = Window.partitionBy("shipment_id").orderBy(col("ingest_time").desc())
@@ -98,7 +98,7 @@ duplicate_df = dedupe_df.filter("rn > 1").drop("rn")
 
 
 
-# 3a. Create duplicates audit table if not exists
+#  Create duplicates audit table if not exists
 
 
 
@@ -122,7 +122,7 @@ clean_df = valid_df
 
 
 
-# 4. Create Silver table
+# Create Silver table
 
 
 if not spark.catalog.tableExists(silver_table):
