@@ -1,3 +1,4 @@
+-----------------deliverycompletionrate---------------------
 SELECT
     COUNT(*) AS total_shipments,
     SUM(freight_cost_usd) AS revenue,
@@ -7,3 +8,17 @@ SELECT
         2
     ) AS deliverycompletionrate
 FROM logistics_catalog.gold.base;
+
+
+
+------------------------Revenue by country ----------------
+SELECT customer_country, SUM(freight_cost_usd) AS revenue
+FROM logistics_catalog.gold.base
+GROUP BY customer_country;
+
+
+------------------------shipment by category----------------
+SELECT category, COUNT(*) shipments
+FROM logistics_catalog.gold.base
+GROUP BY category;
+
