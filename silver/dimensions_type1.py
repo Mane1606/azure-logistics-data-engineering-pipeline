@@ -153,13 +153,13 @@ def load_carrier():
 # FUNCTION EXECUTION
 
 
-print("Starting Dimension Loads...")
+print("Starting Dimension Loads")
 
 load_customer()
 load_product()
 load_carrier()
 
-print("All dimensions loaded successfully ✅")
+print("All dimensions loaded successfully")
 
 
 # COMMAND ----------
